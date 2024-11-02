@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ColorDoors.Scripts.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,10 +15,21 @@ public class TimeManager : MonoBehaviour
     private int _seconds;
     private int _minutes;
     private int _timerAnimationCounter = 0;
-    
+    private static List<int> _doorIdList;
 
+    private void OnEnable()
+    {
+        EventBus<GreenDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorOpened);
+    }
+
+    private void OnDisable()
+    {
+        EventBus<GreenDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorOpened);
+    }
+    
     private void Start()
     {
+        _doorIdList = new List<int>();
         _remainingTime = levelTime;
         _seconds = (int)_remainingTime % 60;
         _minutes = (int)_remainingTime / 60;
@@ -66,5 +78,13 @@ public class TimeManager : MonoBehaviour
         _remainingTime -= Time.deltaTime;
         _minutes = (int)_remainingTime / 60; 
         _seconds = (int)_remainingTime % 60;
+    }
+
+    private void OnAnyGreenDoorOpened(object sender, GreenDoorStatusChangedEvent greenDoorStatusChangedEvent)
+    {
+        if (_doorIdList.Contains(greenDoorStatusChangedEvent.DoorId)) return;
+        _remainingTime += greenDoorStatusChangedEvent.AdditionalTime;
+        remainingTime.color = Color.white;
+        _doorIdList.Add(greenDoorStatusChangedEvent.DoorId);
     }
 }

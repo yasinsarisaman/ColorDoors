@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - RedDoor
+  - IgnoreTheme
+  - Button
+  - MazePiece
   layers:
   - Default
   - TransparentFX
