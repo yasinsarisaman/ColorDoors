@@ -58,30 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             EventBus<GreenDoorStatusChangedEvent>.Emit(this, new GreenDoorStatusChangedEvent(greenDoor.doorId, greenDoor.doorAdditionalTime, !greenDoor.isOpen));
         }
-    }
-
-    private void OnCollisionStay(Collision other)
-    {
-        /* Collision with a maze piece */
-        if (other.gameObject.CompareTag("MazePiece"))
+        
+        /* Collision with finish door */
+        if (other.gameObject.TryGetComponent(out FinishDoor finishDoor))
         {
-            other.gameObject.TryGetComponent(out Renderer mazeMaterial);
-            Material sharedMaterial = mazeMaterial.sharedMaterial;
-            sharedMaterial.SetColor("_Color",new Color(sharedMaterial.color.r, sharedMaterial.color.g, sharedMaterial.color.b, 1));
+            EventBus<FinishDoorStatusChangedEvent>.Emit(this, new FinishDoorStatusChangedEvent());
         }
     }
-
-    private void OnCollisionExit(Collision other)
-    {
-        /* Collision with a maze piece */
-        if (other.gameObject.CompareTag("MazePiece"))
-        {
-            other.gameObject.TryGetComponent(out Renderer mazeMaterial);
-            Material sharedMaterial = mazeMaterial.sharedMaterial;
-            sharedMaterial.SetColor("_Color",new Color(sharedMaterial.color.r, sharedMaterial.color.g, sharedMaterial.color.b, .5f));
-        }
-    }
-
+    
     void GatherInputsFromJoyStick()
     {
         _playerInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
