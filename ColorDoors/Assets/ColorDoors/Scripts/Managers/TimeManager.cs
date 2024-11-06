@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
     private int _seconds;
     private int _minutes;
     private int _timerAnimationCounter = 0;
+    private bool _isThereTimeFreeze = false;
     private static List<int> _doorIdList;
 
     private void OnEnable()
@@ -45,6 +46,7 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
+            if (_isThereTimeFreeze) return;
             EvaluateTime();
             UpdateUITimer();
         }
@@ -86,5 +88,20 @@ public class TimeManager : MonoBehaviour
         _remainingTime += greenDoorStatusChangedEvent.AdditionalTime;
         remainingTime.color = Color.white;
         _doorIdList.Add(greenDoorStatusChangedEvent.DoorId);
+    }
+
+    // public void AddTime(float timeToAdd)
+    // {
+    //     _remainingTime += timeToAdd;
+    // }
+    
+    public void FreezeTime()
+    {
+        _isThereTimeFreeze = true;
+    }
+
+    public void UnfreezeTime()
+    {
+        _isThereTimeFreeze = false;
     }
 }
