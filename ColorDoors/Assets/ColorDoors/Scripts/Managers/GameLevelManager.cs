@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using ColorDoors.Scripts.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameLevelManager : MonoBehaviour
+namespace ColorDoors.Scripts.Managers
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameLevelManager : MonoBehaviour
     {
         
-    }
+        private void OnEnable()
+        {
+            EventBus<ChangeLevelEvent>.AddListener(OnLevelChangedEvent);
 
-    // Update is called once per frame
-    void Update()
-    {
+        }
+
+        private void OnDisable()
+        {
+            EventBus<ChangeLevelEvent>.RemoveListener(OnLevelChangedEvent);
+        }
         
+        private void OnLevelChangedEvent(object sender, ChangeLevelEvent changeLevelEvent)
+        {
+            SceneManager.LoadScene(changeLevelEvent.LevelToLoad);
+        }
     }
 }
