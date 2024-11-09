@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ColorDoors.Scripts.Events;
+using ColorDoors.Scripts.Events.Doors;
 using ColorDoors.Scripts.Events.Player;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -57,6 +57,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.TryGetComponent(out GreenDoor greenDoor))
         {
             EventBus<GreenDoorStatusChangedEvent>.Emit(this, new GreenDoorStatusChangedEvent(greenDoor.doorId, greenDoor.doorAdditionalTime, !greenDoor.isOpen));
+        }
+        
+        /* Collision with a green door */
+        if (other.gameObject.TryGetComponent(out PurpleDoor purpleDoor))
+        {
+            EventBus<PurpleDoorStatusChangedEvent>.Emit(this, new PurpleDoorStatusChangedEvent(purpleDoor.doorId, purpleDoor.doorFreezeTime, !purpleDoor.isOpen));
         }
         
         /* Collision with finish door */

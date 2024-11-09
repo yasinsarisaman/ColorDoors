@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ColorDoors.Scripts.Events;
+using ColorDoors.Scripts.Events.Doors;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,21 +16,26 @@ public class TimeManager : MonoBehaviour
     private int _minutes;
     private int _timerAnimationCounter = 0;
     private bool _isThereTimeFreeze = false;
-    private static List<int> _doorIdList;
+    private float _freezeTime;
+    private static List<int> _greenDoorIdList;
+    private static List<int> _purpleDoorIdList;
 
     private void OnEnable()
     {
         EventBus<GreenDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorOpened);
+        EventBus<PurpleDoorStatusChangedEvent>.AddListener(OnAnyPurpleDoorOpened);
     }
 
     private void OnDisable()
     {
         EventBus<GreenDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorOpened);
+        EventBus<PurpleDoorStatusChangedEvent>.RemoveListener(OnAnyPurpleDoorOpened);
     }
     
     private void Start()
     {
-        _doorIdList = new List<int>();
+        _greenDoorIdList = new List<int>();
+        _purpleDoorIdList = new List<int>();
         _remainingTime = levelTime;
         _seconds = (int)_remainingTime % 60;
         _minutes = (int)_remainingTime / 60;
@@ -46,7 +51,8 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            if (_isThereTimeFreeze) return;
+            if (CheckTimeFreeze()) return;
+            
             EvaluateTime();
             UpdateUITimer();
         }
@@ -84,24 +90,57 @@ public class TimeManager : MonoBehaviour
 
     private void OnAnyGreenDoorOpened(object sender, GreenDoorStatusChangedEvent greenDoorStatusChangedEvent)
     {
-        if (_doorIdList.Contains(greenDoorStatusChangedEvent.DoorId)) return;
+        if (_greenDoorIdList.Contains(greenDoorStatusChangedEvent.DoorId)) return;
         _remainingTime += greenDoorStatusChangedEvent.AdditionalTime;
-        remainingTime.color = Color.white;
-        _doorIdList.Add(greenDoorStatusChangedEvent.DoorId);
+        ChangeTimerColor(Color.white);
+        _greenDoorIdList.Add(greenDoorStatusChangedEvent.DoorId);
+    }
+    
+    private void OnAnyPurpleDoorOpened(object sender, PurpleDoorStatusChangedEvent purpleDoorStatusChangedEvent)
+    {
+        if (_purpleDoorIdList.Contains(purpleDoorStatusChangedEvent.DoorId)) return;
+        FreezeTime(purpleDoorStatusChangedEvent.FreezeTime);
+        ChangeTimerColor(Color.cyan);
+        _purpleDoorIdList.Add(purpleDoorStatusChangedEvent.DoorId);
     }
 
-    // public void AddTime(float timeToAdd)
-    // {
-    //     _remainingTime += timeToAdd;
-    // }
-    
+    private bool CheckTimeFreeze()
+    {
+        if (_isThereTimeFreeze)
+        {
+            if (_freezeTime > 0)
+            {
+                _freezeTime -= Time.deltaTime;
+            }
+            return true;
+        }
+
+        if (!_isThereTimeFreeze || !(_freezeTime <= 0)) return false;
+        
+        _freezeTime = 0.0f;
+        UnfreezeTime();
+        ChangeTimerColor(Color.white);
+        return false;
+    }
+
     public void FreezeTime()
     {
         _isThereTimeFreeze = true;
     }
 
+    private void FreezeTime(float freezeTime)
+    {
+        _isThereTimeFreeze = true;
+        _freezeTime = freezeTime;
+    }
+
     public void UnfreezeTime()
     {
         _isThereTimeFreeze = false;
+    }
+
+    private void ChangeTimerColor(Color color)
+    {
+        remainingTime.color = color;
     }
 }

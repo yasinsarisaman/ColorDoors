@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ColorDoors.Scripts.Events;
+using ColorDoors.Scripts.Events.Doors;
 using ColorDoors.Scripts.Events.Player;
 using UnityEngine;
 

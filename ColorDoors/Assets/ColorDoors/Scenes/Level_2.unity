@@ -10212,7 +10212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingTime: {fileID: 1720769483}
-  levelTime: 12
+  levelTime: 8
 --- !u!1 &1698361416
 GameObject:
   m_ObjectHideFlags: 0
