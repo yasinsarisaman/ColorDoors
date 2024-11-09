@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     private int _minutes;
     private int _timerAnimationCounter = 0;
     private bool _isThereTimeFreeze = false;
+    private bool _isThereTimeFreezeForSeconds = false;
     private float _freezeTime;
     private static List<int> _greenDoorIdList;
     private static List<int> _purpleDoorIdList;
@@ -106,20 +107,20 @@ public class TimeManager : MonoBehaviour
 
     private bool CheckTimeFreeze()
     {
-        if (_isThereTimeFreeze)
+        if (_isThereTimeFreeze) return true;
+
+        switch (_isThereTimeFreezeForSeconds)
         {
-            if (_freezeTime > 0)
-            {
+            case true when _freezeTime > 0.0f:
                 _freezeTime -= Time.deltaTime;
-            }
-            return true;
+                return true;
+            case true when _freezeTime <= 0.0f:
+                _freezeTime = 0.0f;
+                UnfreezeSpecificTimer();
+                ChangeTimerColor(Color.white);
+                return false;
         }
 
-        if (!_isThereTimeFreeze || !(_freezeTime <= 0)) return false;
-        
-        _freezeTime = 0.0f;
-        UnfreezeTime();
-        ChangeTimerColor(Color.white);
         return false;
     }
 
@@ -130,13 +131,18 @@ public class TimeManager : MonoBehaviour
 
     private void FreezeTime(float freezeTime)
     {
-        _isThereTimeFreeze = true;
+        _isThereTimeFreezeForSeconds = true;
         _freezeTime = freezeTime;
     }
 
     public void UnfreezeTime()
     {
         _isThereTimeFreeze = false;
+    }
+    
+    public void UnfreezeSpecificTimer()
+    {
+        _isThereTimeFreezeForSeconds = false;
     }
 
     private void ChangeTimerColor(Color color)

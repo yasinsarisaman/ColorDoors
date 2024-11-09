@@ -59,10 +59,16 @@ public class PlayerController : MonoBehaviour
             EventBus<GreenDoorStatusChangedEvent>.Emit(this, new GreenDoorStatusChangedEvent(greenDoor.doorId, greenDoor.doorAdditionalTime, !greenDoor.isOpen));
         }
         
-        /* Collision with a green door */
+        /* Collision with a purple door */
         if (other.gameObject.TryGetComponent(out PurpleDoor purpleDoor))
         {
             EventBus<PurpleDoorStatusChangedEvent>.Emit(this, new PurpleDoorStatusChangedEvent(purpleDoor.doorId, purpleDoor.doorFreezeTime, !purpleDoor.isOpen));
+        }
+        
+        /* Collision with a orange door */
+        if (other.gameObject.TryGetComponent(out OrangeDoor orangeDoor))
+        {
+            EventBus<OrangeDoorStatusChangedEvent>.Emit(this, new OrangeDoorStatusChangedEvent(orangeDoor.doorId));
         }
         
         /* Collision with finish door */
