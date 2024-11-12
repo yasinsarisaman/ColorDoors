@@ -2,16 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
+using TMPro;
 using UnityEngine;
 
 public class PurpleDoor : MonoBehaviour
 {
+    [SerializeField] TextMeshPro additionalTimeText;
     public int doorId;
     public float doorFreezeTime;
     public bool isOpen;
 
     private Vector3 _initialDoorPosition;
     private float _timer;
+
+    private void Awake()
+    {
+        additionalTimeText.text = "* " + doorFreezeTime;
+    }
+
     private void Start()
     {
         isOpen = false;
@@ -43,5 +51,6 @@ public class PurpleDoor : MonoBehaviour
     {
         isOpen = true;
         transform.position = new Vector3(_initialDoorPosition.x + .4f, _initialDoorPosition.y, _initialDoorPosition.z);
+        additionalTimeText.text = "";
     }
 }

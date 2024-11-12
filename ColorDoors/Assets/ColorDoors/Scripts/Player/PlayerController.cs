@@ -71,6 +71,12 @@ public class PlayerController : MonoBehaviour
             EventBus<OrangeDoorStatusChangedEvent>.Emit(this, new OrangeDoorStatusChangedEvent(orangeDoor.doorId));
         }
         
+        /* Collision with a white door */
+        if (other.gameObject.TryGetComponent(out WhiteDoor whiteDoor))
+        {
+            EventBus<WhiteDoorStatusChangedEvent>.Emit(this, new WhiteDoorStatusChangedEvent(whiteDoor.doorId));
+        }
+        
         /* Collision with finish door */
         if (other.gameObject.TryGetComponent(out FinishDoor finishDoor))
         {
@@ -103,7 +109,7 @@ public class PlayerController : MonoBehaviour
     private void OnTeleportation(object sender, TeleportPlayer teleportPlayerEvent)
     {
         Vector3 teleportPosition = teleportPlayerEvent.TransformToTeleport.position;
-        Vector3 newPositionWithOffset = new Vector3(teleportPosition.x , GROUND_ELEVATION, teleportPosition.z) + (new Vector3(transform.forward.x, GROUND_ELEVATION, transform.forward.z) * teleportPlayerEvent.DoorOffset);
+        Vector3 newPositionWithOffset = new Vector3(teleportPosition.x , transform.position.y, teleportPosition.z) + (new Vector3(transform.forward.x, GROUND_ELEVATION, transform.forward.z) * teleportPlayerEvent.DoorOffset);
         transform.SetPositionAndRotation(newPositionWithOffset, teleportPlayerEvent.TransformToTeleport.rotation);
     }
 

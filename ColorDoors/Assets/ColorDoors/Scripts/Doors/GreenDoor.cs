@@ -2,17 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
+using TMPro;
 using UnityEngine;
 
 public class GreenDoor : MonoBehaviour
 {
     [SerializeField] private float timeToClose;
+    [SerializeField] private TextMeshPro additionalTimeText;
     public int doorId;
     public float doorAdditionalTime;
     public bool isOpen;
 
     private Vector3 _initialDoorPosition;
     private float _timer;
+
+    private void Awake()
+    {
+        additionalTimeText.text = "+ " + doorAdditionalTime;
+    }
+
     private void Start()
     {
         _timer = 0.0f;
@@ -62,6 +70,7 @@ public class GreenDoor : MonoBehaviour
     {
         isOpen = true;
         transform.position = new Vector3(_initialDoorPosition.x + .4f, _initialDoorPosition.y, _initialDoorPosition.z);
+        additionalTimeText.text = "";
     }
 
     private void CloseDoor()
