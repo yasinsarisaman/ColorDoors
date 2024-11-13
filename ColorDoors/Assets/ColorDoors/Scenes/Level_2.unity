@@ -8462,7 +8462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingTime: {fileID: 1720769483}
-  levelTime: 300
+  levelTime: 10
 --- !u!1 &1698361416
 GameObject:
   m_ObjectHideFlags: 0
@@ -8649,8 +8649,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You need to achieve               door to pass the level - Be careful!
-    Red doors can be opened one time in a level.
+  m_text: You need to achieve               door to pass the level. Blue doors are
+    portals...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -10477,7 +10477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.51822, y: 38.38159}
+  m_AnchoredPosition: {x: 71.51822, y: 19}
   m_SizeDelta: {x: 96.2983, y: 48.3642}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074163002

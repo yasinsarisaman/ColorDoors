@@ -62,7 +62,7 @@ public class TimeManager : MonoBehaviour
     private void UpdateUITimer()
     {
         remainingTime.text = _minutes + ":" + _seconds.ToString("00");
-        if (_seconds <= 10 && _minutes < 1)
+        if (_seconds <= 5 && _minutes < 1)
         {
             remainingTime.color = Color.red;
             if (_timerAnimationCounter < 100)
