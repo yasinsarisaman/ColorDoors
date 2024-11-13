@@ -25,12 +25,14 @@ public class TimeManager : MonoBehaviour
     {
         EventBus<GreenDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorOpened);
         EventBus<PurpleDoorStatusChangedEvent>.AddListener(OnAnyPurpleDoorOpened);
+        EventBus<LevelCompletedEvent>.AddListener(OnLevelCompleted);
     }
 
     private void OnDisable()
     {
         EventBus<GreenDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorOpened);
         EventBus<PurpleDoorStatusChangedEvent>.RemoveListener(OnAnyPurpleDoorOpened);
+        EventBus<LevelCompletedEvent>.RemoveListener(OnLevelCompleted);
     }
     
     private void Start()
@@ -103,6 +105,11 @@ public class TimeManager : MonoBehaviour
         FreezeTime(purpleDoorStatusChangedEvent.FreezeTime);
         ChangeTimerColor(Color.cyan);
         _purpleDoorIdList.Add(purpleDoorStatusChangedEvent.DoorId);
+    }
+
+    private void OnLevelCompleted(object sender, LevelCompletedEvent levelCompletedEvent)
+    {
+        FreezeTime();
     }
 
     private bool CheckTimeFreeze()

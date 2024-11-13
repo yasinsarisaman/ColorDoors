@@ -35,6 +35,6 @@ public class FinishDoorArrow : MonoBehaviour
         _newPos.y += (_animSpeed * Time.deltaTime) * _animDirection;
         
         transform.position = _newPos; 
-        transform.Rotate(new Vector3(0,1,0), .03f);
+        // transform.Rotate(new Vector3(0,1,0), .03f);
     }
 }
