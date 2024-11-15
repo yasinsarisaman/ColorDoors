@@ -51,7 +51,7 @@ public class RedDoor : MonoBehaviour
             if (!redDoorStatusChangedEvent.IsOpened)
             {
                 OpenDoor();
-                _timer = 3.0f;
+                _timer = 1.5f;
             }
         }
     }

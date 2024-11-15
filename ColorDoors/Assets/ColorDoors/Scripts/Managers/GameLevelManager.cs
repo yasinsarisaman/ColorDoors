@@ -21,7 +21,19 @@ namespace ColorDoors.Scripts.Managers
         
         private void OnLevelChangedEvent(object sender, ChangeLevelEvent changeLevelEvent)
         {
-            SceneManager.LoadScene(changeLevelEvent.LevelToLoad);
+            Scene activeScene = SceneManager.GetActiveScene();
+            switch (changeLevelEvent.LevelChange)
+            {
+                case LevelChange.levelChange_GoNextLevel:
+                SceneManager.LoadScene(activeScene.buildIndex + 1);
+                break;
+                case LevelChange.levelChange_RestartLevel:
+                    SceneManager.LoadScene(activeScene.buildIndex);
+                break;
+                case LevelChange.levelChange_GoBackToMainMenu:
+                    SceneManager.LoadScene(0);
+                break;
+            }
         }
     }
 }

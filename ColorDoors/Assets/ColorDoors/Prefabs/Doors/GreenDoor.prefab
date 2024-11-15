@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToClose: 2
-  additionalTimeText: {fileID: 0}
+  additionalTimeText: {fileID: 2992368102067676820}
   doorId: 20
   doorAdditionalTime: 20
   isOpen: 0

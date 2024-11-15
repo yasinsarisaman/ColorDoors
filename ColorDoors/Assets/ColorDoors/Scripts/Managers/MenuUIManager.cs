@@ -7,6 +7,7 @@ namespace ColorDoors.Scripts.Managers
     public class MenuUIManager : MonoBehaviour
     {
         [SerializeField] private GameObject winMenu, loseMenu ,gameplayMenu;
+        private bool _levelCompleted = false;
 
         private void OnEnable()
         {
@@ -18,21 +19,27 @@ namespace ColorDoors.Scripts.Managers
         {
             EventBus<LevelCompletedEvent>.RemoveListener(OnLevelCompletedEvent);
         }
+        
         private void OnLevelCompletedEvent(object sender, LevelCompletedEvent e)
         {
-            switch (e.CompletionState)
+            if (!_levelCompleted)
             {
-                case CompletionStates.CompletionState_WIN:
-                    winMenu.SetActive(true);
-                    gameplayMenu.SetActive(false);
-                    break;
-                case CompletionStates.CompletionState_LOSE_TIMEOUT:
-                    loseMenu.SetActive(true);
-                    gameplayMenu.SetActive(false);
-                    break;
-                default:
-                    gameplayMenu.SetActive(false);
-                    break;
+                switch (e.CompletionState)
+                {
+                    case CompletionStates.CompletionState_WIN:
+                        winMenu.SetActive(true);
+                        gameplayMenu.SetActive(false);
+                        _levelCompleted = true;
+                        break;
+                    case CompletionStates.CompletionState_LOSE_TIMEOUT:
+                        loseMenu.SetActive(true);
+                        gameplayMenu.SetActive(false);
+                        _levelCompleted = true;
+                        break;
+                    default:
+                        gameplayMenu.SetActive(false);
+                        break;
+                }
             }
         }
     }

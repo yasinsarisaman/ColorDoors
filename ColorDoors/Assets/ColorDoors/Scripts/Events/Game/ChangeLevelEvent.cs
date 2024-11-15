@@ -2,12 +2,19 @@ using UnityEngine;
 
 namespace ColorDoors.Scripts.Events
 {
+    public enum LevelChange
+    {
+        levelChange_GoNextLevel,
+        levelChange_RestartLevel,
+        levelChange_GoBackToMainMenu
+    }
+
     public struct ChangeLevelEvent
     {
-        public ChangeLevelEvent(int levelToLoad)
+        public ChangeLevelEvent(LevelChange levelChange)
         {
-            LevelToLoad = levelToLoad;
+            LevelChange = levelChange;
         }
-        public int LevelToLoad { get; set; }
+        public LevelChange LevelChange;
     }
 }
