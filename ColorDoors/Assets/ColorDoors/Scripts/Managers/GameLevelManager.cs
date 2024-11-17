@@ -7,7 +7,11 @@ namespace ColorDoors.Scripts.Managers
 {
     public class GameLevelManager : MonoBehaviour
     {
-        
+        private void Start()
+        {
+            GameHelper.AddLevelStatus(SceneManager.GetActiveScene().buildIndex,false);
+        }
+
         private void OnEnable()
         {
             EventBus<ChangeLevelEvent>.AddListener(OnLevelChangedEvent);
@@ -25,7 +29,9 @@ namespace ColorDoors.Scripts.Managers
             switch (changeLevelEvent.LevelChange)
             {
                 case LevelChange.levelChange_GoNextLevel:
-                SceneManager.LoadScene(activeScene.buildIndex + 1);
+                    GameHelper.UpdateLevelStatus(SceneManager.GetActiveScene().buildIndex + 1, false);
+                    GameHelper.SaveLevelStatuses();
+                    SceneManager.LoadScene(activeScene.buildIndex + 1);
                 break;
                 case LevelChange.levelChange_RestartLevel:
                     SceneManager.LoadScene(activeScene.buildIndex);

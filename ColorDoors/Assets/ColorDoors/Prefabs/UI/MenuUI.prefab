@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
         m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
         m_MethodName: GoToLevel
         m_Mode: 3
@@ -251,7 +251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7354975857383916463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
+        m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
+        m_MethodName: GoToLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &551195610931750968
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +577,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1088625634661956900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
+        m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
+        m_MethodName: GoToLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1740673248801673956
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
         m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
         m_MethodName: GoToLevel
         m_Mode: 3
@@ -1384,7 +1408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8798815345266344621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
+        m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
+        m_MethodName: GoToLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5923037485926850798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,7 +1541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
         m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
         m_MethodName: GoToLevel
         m_Mode: 3
@@ -1969,4 +2005,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3867194903970503726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2330503741343155866, guid: 0cfdf8f239a299444aef519cae4dc7f8, type: 3}
+        m_TargetAssemblyTypeName: LevelHelper, Assembly-CSharp
+        m_MethodName: GoToLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

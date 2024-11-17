@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ColorDoors.Scripts.Managers
 {
@@ -12,7 +13,6 @@ namespace ColorDoors.Scripts.Managers
         private void OnEnable()
         {
             EventBus<LevelCompletedEvent>.AddListener(OnLevelCompletedEvent);
-
         }
         
         private void OnDisable()
