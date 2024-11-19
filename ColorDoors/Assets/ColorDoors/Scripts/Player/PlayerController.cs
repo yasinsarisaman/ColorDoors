@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
 using ColorDoors.Scripts.Events.Player;
+using Unity.Mathematics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -13,10 +14,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _playerSpeed;
     [SerializeField] private Rigidbody _playerRb;
-    [SerializeField] private DynamicJoystick _joystick;
+    [SerializeField] private VariableJoystick _joystick;
+
+    private Animator characterAnimator;
 
     private Vector3 _playerInput;
     private const float GROUND_ELEVATION = 0.2f;
+
+    private void Start()
+    {
+         characterAnimator = this.GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
@@ -31,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         GatherInputsFromJoyStick();
+        
         Look();
     }
 
@@ -102,6 +111,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        
+        characterAnimator.SetFloat("CharacterSpeed", math.abs(_playerInput.magnitude)/2);
         _playerRb.MovePosition(transform.position + transform.forward * (_playerInput.magnitude * _playerSpeed * Time.deltaTime));
     }
     
