@@ -59,7 +59,8 @@ public class RedDoor : MonoBehaviour
     private void OpenDoor()
     {
         isOpened = true;
-        transform.eulerAngles = new Vector3(_initialDoorRotation.x, -90, _initialDoorRotation.z);
+        transform.eulerAngles = new Vector3(_initialDoorRotation.x, _initialDoorRotation.y-90, _initialDoorRotation.z);
+        //Debug.Log("initial door rotation: " + _initialDoorRotation + "   euler new: " + transform.eulerAngles);
     }
 
     private void CloseDoor()

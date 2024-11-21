@@ -119,9 +119,14 @@ public class PlayerController : MonoBehaviour
     /* Callbacks */
     private void OnTeleportation(object sender, TeleportPlayer teleportPlayerEvent)
     {
+        //Vector3 teleportPosition = teleportPlayerEvent.TransformToTeleport.position;
+        //Vector3 newPositionWithOffset = new Vector3(teleportPosition.x , transform.position.y, teleportPosition.z) + (new Vector3(transform.forward.x, GROUND_ELEVATION, transform.forward.z) * teleportPlayerEvent.DoorOffset);
+        
         Vector3 teleportPosition = teleportPlayerEvent.TransformToTeleport.position;
-        Vector3 newPositionWithOffset = new Vector3(teleportPosition.x , transform.position.y, teleportPosition.z) + (new Vector3(transform.forward.x, GROUND_ELEVATION, transform.forward.z) * teleportPlayerEvent.DoorOffset);
-        transform.SetPositionAndRotation(newPositionWithOffset, teleportPlayerEvent.TransformToTeleport.rotation);
+        Vector3 newPositionWithOffset = teleportPosition +
+                                        teleportPlayerEvent.TransformToTeleport.forward *
+                                        teleportPlayerEvent.DoorOffset;
+        transform.SetPositionAndRotation(new Vector3(newPositionWithOffset.x, GROUND_ELEVATION, newPositionWithOffset.z), teleportPlayerEvent.TransformToTeleport.rotation);
     }
 
 }

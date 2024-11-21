@@ -23,7 +23,7 @@ public class DynamicMazePieces : MonoBehaviour
         _isOpen = false;
         _shouldBeOpened = false;
         _closedPosition = transform.position;
-        _openedPosition = new Vector3(_closedPosition.x, _closedPosition.y - .8f, _closedPosition.z);
+        _openedPosition = new Vector3(_closedPosition.x, _closedPosition.y - 1f, _closedPosition.z);
     }
 
     private void Update()
