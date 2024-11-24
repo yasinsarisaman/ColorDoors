@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ColorDoors.Scripts.Events;
 using ColorDoors.Scripts.Events.Doors;
 using TMPro;
 using UnityEngine;
@@ -17,12 +18,14 @@ public class TimeManager : MonoBehaviour
     private int _timerAnimationCounter = 0;
     private bool _isThereTimeFreeze = false;
     private bool _isThereTimeFreezeForSeconds = false;
+    private bool _isFirstInputReceived = false;
     private float _freezeTime;
     private static List<int> _greenDoorIdList;
     private static List<int> _purpleDoorIdList;
 
     private void OnEnable()
     {
+        EventBus<FirstInputReceivedEvent>.AddListener(OnFirstInputReceived);
         EventBus<GreenDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorOpened);
         EventBus<PurpleDoorStatusChangedEvent>.AddListener(OnAnyPurpleDoorOpened);
         EventBus<LevelCompletedEvent>.AddListener(OnLevelCompleted);
@@ -30,6 +33,7 @@ public class TimeManager : MonoBehaviour
 
     private void OnDisable()
     {
+        EventBus<FirstInputReceivedEvent>.RemoveListener(OnFirstInputReceived);
         EventBus<GreenDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorOpened);
         EventBus<PurpleDoorStatusChangedEvent>.RemoveListener(OnAnyPurpleDoorOpened);
         EventBus<LevelCompletedEvent>.RemoveListener(OnLevelCompleted);
@@ -48,6 +52,7 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
+        if (!_isFirstInputReceived) { return; }
         if ((int)_remainingTime == 0)
         {
             EventBus<LevelCompletedEvent>.Emit(this, new LevelCompletedEvent(CompletionStates.CompletionState_LOSE_TIMEOUT));
@@ -106,6 +111,11 @@ public class TimeManager : MonoBehaviour
         ChangeTimerColor(Color.cyan);
         _purpleDoorIdList.Add(purpleDoorStatusChangedEvent.DoorId);
     }
+    
+    private void OnFirstInputReceived(object sender, FirstInputReceivedEvent firstInput)
+    {
+        _isFirstInputReceived = true;
+    }
 
     private void OnLevelCompleted(object sender, LevelCompletedEvent levelCompletedEvent)
     {
@@ -156,4 +166,6 @@ public class TimeManager : MonoBehaviour
     {
         remainingTime.color = color;
     }
+
+
 }

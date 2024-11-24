@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ColorDoors.Scripts.Events;
 using ColorDoors.Scripts.Events.Doors;
 using ColorDoors.Scripts.Events.Player;
 using Unity.Mathematics;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _playerInput;
     private const float GROUND_ELEVATION = 0.2f;
+    private bool _isFirstInputReceived = false;
 
     private void Start()
     {
@@ -39,7 +41,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         GatherInputsFromJoyStick();
-        
         Look();
     }
 
@@ -96,6 +97,11 @@ public class PlayerController : MonoBehaviour
     void GatherInputsFromJoyStick()
     {
         _playerInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
+        if (!_isFirstInputReceived && _playerInput != Vector3.zero)
+        {
+            _isFirstInputReceived = true;
+            EventBus<FirstInputReceivedEvent>.Emit(this, new FirstInputReceivedEvent());
+        }
     }
 
     void Look()
