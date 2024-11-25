@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: _joystick
       value: 
-      objectReference: {fileID: 1851715227}
+      objectReference: {fileID: 1851715230}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5428,6 +5428,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 16568451185523749, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
   m_PrefabInstance: {fileID: 1851715225}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1851715230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6858091038094415813, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+  m_PrefabInstance: {fileID: 1851715225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1858831892
 GameObject:
   m_ObjectHideFlags: 0
