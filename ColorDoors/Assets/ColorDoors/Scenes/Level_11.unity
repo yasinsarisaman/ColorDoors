@@ -468,6 +468,14 @@ PrefabInstance:
       propertyPath: doorAdditionalTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
+      propertyPath: _animatorTimerClockImg
+      value: 
+      objectReference: {fileID: 276966598}
+    - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
+      propertyPath: _animatorTimerClockText
+      value: 
+      objectReference: {fileID: 276966597}
     - target: {fileID: 3816820682838492139, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.462
@@ -1206,6 +1214,16 @@ MonoBehaviour:
 --- !u!1 &276966596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 16568451185523749, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+  m_PrefabInstance: {fileID: 276966592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &276966597 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3683648697616845609, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+  m_PrefabInstance: {fileID: 276966592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &276966598 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2303449039641177198, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
   m_PrefabInstance: {fileID: 276966592}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &287170255 stripped
@@ -2335,12 +2353,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 350716871}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4111797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.888
+      value: -1.0387
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4106,6 +4128,14 @@ PrefabInstance:
       propertyPath: doorAdditionalTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
+      propertyPath: _animatorTimerClockImg
+      value: 
+      objectReference: {fileID: 276966598}
+    - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
+      propertyPath: _animatorTimerClockText
+      value: 
+      objectReference: {fileID: 276966597}
     - target: {fileID: 3816820682838492139, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.552
@@ -5901,12 +5931,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1460302447}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4368134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.888
+      value: -1.0515
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6604,12 +6638,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 17047017}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3938687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.888
+      value: -1.0301
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6853,12 +6891,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1238442711}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4178377
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.888
+      value: -1.0421
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7315,8 +7357,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1248667507}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.41351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.888
+      value: -1.0399
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7952,8 +7998,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 721875236}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2873394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.076
+      value: -0.0128
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y

@@ -9,6 +9,10 @@ public class GreenDoor : MonoBehaviour
 {
     [SerializeField] private float timeToClose;
     [SerializeField] private TextMeshPro additionalTimeText;
+    [SerializeField] private Vector3 _doorOpenVector;
+    [SerializeField] private Animator _animatorTimerClockImg;
+    [SerializeField] private Animator _animatorTimerClockText;
+    
     public int doorId;
     public float doorAdditionalTime;
     public bool isOpen;
@@ -69,12 +73,16 @@ public class GreenDoor : MonoBehaviour
     private void OpenDoor()
     {
         isOpen = true;
-        transform.position = new Vector3(_initialDoorPosition.x + .4f, _initialDoorPosition.y, _initialDoorPosition.z);
+        transform.position = new Vector3(_initialDoorPosition.x, _initialDoorPosition.y, _initialDoorPosition.z) + _doorOpenVector;
+        _animatorTimerClockImg.SetBool("TimerScaleAnim", true);
+        _animatorTimerClockText.SetBool("TimerTextAnim", true);
         additionalTimeText.text = "";
     }
 
     private void CloseDoor()
     {
+        _animatorTimerClockImg.SetBool("TimerScaleAnim", false);
+        _animatorTimerClockText.SetBool("TimerTextAnim", false);
         isOpen = false;
         transform.position = _initialDoorPosition;
     }

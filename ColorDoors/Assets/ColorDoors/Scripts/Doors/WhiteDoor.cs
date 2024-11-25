@@ -7,6 +7,7 @@ using UnityEngine;
 public class WhiteDoor : MonoBehaviour
 {
     [SerializeField] private float _doorOpenTime;
+    [SerializeField] private Vector3 _doorOpenVector;
     public int doorId;
 
     private Vector3 _initialDoorPosition;
@@ -55,7 +56,7 @@ public class WhiteDoor : MonoBehaviour
     private void OpenDoor()
     {
         _isOpen = true;
-        transform.position = new Vector3(_initialDoorPosition.x + .4f, _initialDoorPosition.y, _initialDoorPosition.z);
+        transform.position = new Vector3(_initialDoorPosition.x, _initialDoorPosition.y, _initialDoorPosition.z) + _doorOpenVector;
     }
 
     private void CloseDoor()

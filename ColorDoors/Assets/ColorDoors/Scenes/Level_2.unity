@@ -2398,11 +2398,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5467392
+      value: 0.78216517
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8765
+      value: 5.9942
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2978,8 +2978,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 304100088}
     m_Modifications:
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.379221
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.554
+      value: -5.6888
       objectReference: {fileID: 0}
     - target: {fileID: 4485754520277167121, guid: ad07e992a76cfce4f98a97e9e3eaa4f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3743,7 +3747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393400436452721879, guid: 17f6db829ba4e0c409cd99a123e7ba8b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6394334696653890932, guid: 17f6db829ba4e0c409cd99a123e7ba8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -4577,6 +4581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 16568451185523749, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 620585504113299622, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5223,7 +5231,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c37b1ccfbc7ed274eb99f9d40e72c4e6, type: 3}
   m_PrefabInstance: {fileID: 1930853609}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1986670862
+--- !u!1 &1949288023
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5231,42 +5239,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1986670863}
-  - component: {fileID: 1986670865}
-  - component: {fileID: 1986670864}
+  - component: {fileID: 1949288024}
+  - component: {fileID: 1949288026}
+  - component: {fileID: 1949288025}
   m_Layer: 5
-  m_Name: HelpSubText - Yellow
+  m_Name: BLUE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1986670863
+--- !u!224 &1949288024
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986670862}
+  m_GameObject: {fileID: 1949288023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2094267120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.51822, y: 19}
-  m_SizeDelta: {x: 96.2983, y: 48.3642}
+  m_AnchoredPosition: {x: -133, y: 0}
+  m_SizeDelta: {x: 519.6835, y: 280.3463}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1986670864
+--- !u!114 &1949288025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986670862}
+  m_GameObject: {fileID: 1949288023}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -5280,7 +5288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: yellow
+  m_text: Blue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -5289,8 +5297,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278231752
-  m_fontColor: {r: 0.7830189, g: 0.637039, b: 0, a: 1}
+    rgba: 4292711429
+  m_fontColor: {r: 0.020469915, g: 0.5787929, b: 0.8679245, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5349,13 +5357,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1986670865
+--- !u!222 &1949288026
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986670862}
+  m_GameObject: {fileID: 1949288023}
   m_CullTransparentMesh: 1
 --- !u!4 &1994794293 stripped
 Transform:
@@ -5407,7 +5415,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1986670863}
+  - {fileID: 1949288024}
   m_Father: {fileID: 1561728708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5435,8 +5443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You need to achieve               door to pass the level. Blue doors are
-    portals...
+  m_text: '          doors are portals...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}

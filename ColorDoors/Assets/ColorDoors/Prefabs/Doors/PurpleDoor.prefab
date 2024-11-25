@@ -318,8 +318,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294937600
-  m_fontColor: {r: 0, g: 0.55093956, b: 1, a: 1}
+    rgba: 4294958080
+  m_fontColor: {r: 0, g: 0.8638587, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -501,6 +501,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   additionalTimeText: {fileID: 0}
+  _doorOpenVector: {x: 0.7, y: 0, z: 0}
+  _animatorTimerClockImg: {fileID: 0}
+  _animatorTimerClockText: {fileID: 0}
   doorId: 30
   doorFreezeTime: 3
   isOpen: 0

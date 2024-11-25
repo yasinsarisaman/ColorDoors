@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorOpenTime: 3
+  _doorOpenVector: {x: 0.7, y: 0, z: 0}
   doorId: 50
 --- !u!1 &6534222094203198313
 GameObject:

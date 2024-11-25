@@ -619,8 +619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5281129f84097f4448383d50ca62ea5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToClose: 2
+  timeToClose: 1
   additionalTimeText: {fileID: 2992368102067676820}
+  _doorOpenVector: {x: 0.7, y: 0, z: 0}
+  _animatorTimerClockImg: {fileID: 0}
+  _animatorTimerClockText: {fileID: 0}
   doorId: 20
   doorAdditionalTime: 20
   isOpen: 0

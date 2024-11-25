@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     private int _seconds;
     private int _minutes;
     private int _timerAnimationCounter = 0;
+    private int _additionalTimerColorCounter;
     private bool _isThereTimeFreeze = false;
     private bool _isThereTimeFreezeForSeconds = false;
     private bool _isFirstInputReceived = false;
@@ -69,6 +70,7 @@ public class TimeManager : MonoBehaviour
     private void UpdateUITimer()
     {
         remainingTime.text = _minutes + ":" + _seconds.ToString("00");
+        ArrangeTimerColor();
         if (_seconds <= 5 && _minutes < 1)
         {
             remainingTime.color = Color.red;
@@ -100,7 +102,7 @@ public class TimeManager : MonoBehaviour
     {
         if (_greenDoorIdList.Contains(greenDoorStatusChangedEvent.DoorId)) return;
         _remainingTime += greenDoorStatusChangedEvent.AdditionalTime;
-        ChangeTimerColor(Color.white);
+        _additionalTimerColorCounter = 120;
         _greenDoorIdList.Add(greenDoorStatusChangedEvent.DoorId);
     }
     
@@ -167,5 +169,18 @@ public class TimeManager : MonoBehaviour
         remainingTime.color = color;
     }
 
+    private void ArrangeTimerColor()
+    {
+        if (_additionalTimerColorCounter <= 0)
+        {
+            ChangeTimerColor(Color.white);
+            _additionalTimerColorCounter = 0;
+        }
+        else
+        {
+            ChangeTimerColor(Color.green);
+            _additionalTimerColorCounter--;
+        }
+    }
 
 }
