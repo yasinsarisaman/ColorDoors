@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 816842547352700807}
   - component: {fileID: 1236686555071834712}
   - component: {fileID: 2804724216722756789}
+  - component: {fileID: 7949458430486755543}
   m_Layer: 5
   m_Name: OptionsBtn
   m_TagString: Untagged
@@ -995,6 +996,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7949458430486755543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843856479766982444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728acb3e41ac0b440b4b7f6e1fd5211e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6372908094640895952
 GameObject:
   m_ObjectHideFlags: 0
