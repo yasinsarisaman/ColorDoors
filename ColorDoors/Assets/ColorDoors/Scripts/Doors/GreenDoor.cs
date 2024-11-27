@@ -5,7 +5,7 @@ using ColorDoors.Scripts.Events.Doors;
 using TMPro;
 using UnityEngine;
 
-public class GreenDoor : MonoBehaviour
+public class GreenDoor : MonoBehaviour, Interactable
 {
     [SerializeField] private float timeToClose;
     [SerializeField] private TextMeshPro additionalTimeText;
@@ -50,22 +50,25 @@ public class GreenDoor : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus<GreenDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnAnyGreenDoorStatusChanged);
     }
 
     private void OnDisable()
     {
-        EventBus<GreenDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnAnyGreenDoorStatusChanged);
     }
 
-    private void OnAnyGreenDoorStatusChanged(object sender, GreenDoorStatusChangedEvent greenDoorStatusChangedEvent)
+    private void OnAnyGreenDoorStatusChanged(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
     {
-        if (greenDoorStatusChangedEvent.DoorId == doorId) 
+        if (doorStatusChangedEvent is GreenDoorStatusChangedEvent greenDoorStatusChangedEvent)
         {
-            if (greenDoorStatusChangedEvent.ShouldBeOpened)
+            if (greenDoorStatusChangedEvent.DoorId == doorId) 
             {
-                OpenDoor();
-                _timer = timeToClose;
+                if (greenDoorStatusChangedEvent.ShouldBeOpened)
+                {
+                    OpenDoor();
+                    _timer = timeToClose;
+                }
             }
         }
     }

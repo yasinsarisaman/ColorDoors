@@ -5,7 +5,7 @@ using ColorDoors.Scripts.Events.Doors;
 using ColorDoors.Scripts.Events.Player;
 using UnityEngine;
 
-public class BlueDoor : MonoBehaviour
+public class BlueDoor : MonoBehaviour, Interactable
 {
     public int doorId;
     [SerializeField] private Transform correlatedDoorTransform;
@@ -13,19 +13,23 @@ public class BlueDoor : MonoBehaviour
     
     private void OnEnable()
     {
-        EventBus<BlueDoorStatusChangedEvent>.AddListener(OnBlueDoorStatusChangedEvent);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnBlueDoorStatusChangedEvent);
     }
 
     private void OnDisable()
     {
-        EventBus<BlueDoorStatusChangedEvent>.RemoveListener(OnBlueDoorStatusChangedEvent);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnBlueDoorStatusChangedEvent);
     }
 
-    private void OnBlueDoorStatusChangedEvent(object sender, BlueDoorStatusChangedEvent blueDoorStatusChangedEvent)
+    private void OnBlueDoorStatusChangedEvent(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
     {
-        if (blueDoorStatusChangedEvent.DoorId == doorId) 
+        if (doorStatusChangedEvent is BlueDoorStatusChangedEvent blueDoorStatusChangedEvent)
         {
-            EventBus<TeleportPlayer>.Emit(this,new TeleportPlayer(correlatedDoorTransform,doorOffset));
+            if (blueDoorStatusChangedEvent.DoorId == doorId) 
+            {
+                EventBus<TeleportPlayer>.Emit(this,new TeleportPlayer(correlatedDoorTransform,doorOffset));
+            }
         }
+
     }
 }

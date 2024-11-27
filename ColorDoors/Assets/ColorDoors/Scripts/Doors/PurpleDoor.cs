@@ -5,7 +5,7 @@ using ColorDoors.Scripts.Events.Doors;
 using TMPro;
 using UnityEngine;
 
-public class PurpleDoor : MonoBehaviour
+public class PurpleDoor : MonoBehaviour, Interactable
 {
     [SerializeField] TextMeshPro additionalTimeText;
     [SerializeField] private Vector3 _doorOpenVector;
@@ -47,22 +47,25 @@ public class PurpleDoor : MonoBehaviour
     
     private void OnEnable()
     {
-        EventBus<PurpleDoorStatusChangedEvent>.AddListener(OnAnyPurpleDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnAnyPurpleDoorStatusChanged);
     }
 
     private void OnDisable()
     {
-        EventBus<PurpleDoorStatusChangedEvent>.RemoveListener(OnAnyPurpleDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnAnyPurpleDoorStatusChanged);
     }
 
-    private void OnAnyPurpleDoorStatusChanged(object sender, PurpleDoorStatusChangedEvent purpleDoorStatusChangedEvent)
+    private void OnAnyPurpleDoorStatusChanged(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
     {
-        if (purpleDoorStatusChangedEvent.DoorId == doorId) 
+        if (doorStatusChangedEvent is PurpleDoorStatusChangedEvent purpleDoorStatusChangedEvent)
         {
-            if (purpleDoorStatusChangedEvent.ShouldBeOpened)
+            if (purpleDoorStatusChangedEvent.DoorId == doorId)
             {
-                OpenDoor();
-                _timer = 1.0f;
+                if (purpleDoorStatusChangedEvent.ShouldBeOpened)
+                {
+                    OpenDoor();
+                    _timer = 1.0f;
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
 using UnityEngine;
 
-public class WhiteDoor : MonoBehaviour
+public class WhiteDoor : MonoBehaviour, Interactable
 {
     [SerializeField] private float _doorOpenTime;
     [SerializeField] private Vector3 _doorOpenVector;
@@ -36,20 +36,23 @@ public class WhiteDoor : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus<WhiteDoorStatusChangedEvent>.AddListener(OnAnyWhiteDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnAnyWhiteDoorStatusChanged);
     }
 
     private void OnDisable()
     {
-        EventBus<WhiteDoorStatusChangedEvent>.RemoveListener(OnAnyWhiteDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnAnyWhiteDoorStatusChanged);
     }
 
-    private void OnAnyWhiteDoorStatusChanged(object sender, WhiteDoorStatusChangedEvent whiteDoorStatusChangedEvent)
+    private void OnAnyWhiteDoorStatusChanged(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
     {
-        if (whiteDoorStatusChangedEvent.DoorId == doorId) 
+        if (doorStatusChangedEvent is WhiteDoorStatusChangedEvent whiteDoorStatusChangedEvent)
         {
-            OpenDoor();
-            _timer = _doorOpenTime;
+            if (whiteDoorStatusChangedEvent.DoorId == doorId) 
+            {
+                OpenDoor();
+                _timer = _doorOpenTime;
+            }
         }
     }
 

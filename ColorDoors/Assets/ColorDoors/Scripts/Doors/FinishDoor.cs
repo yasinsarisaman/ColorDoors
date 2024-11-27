@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
 using UnityEngine;
 
-public class FinishDoor : MonoBehaviour
+public class FinishDoor : MonoBehaviour, Interactable
 {
     private void OnEnable()
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
 using UnityEngine;
 
-public class RedDoor : MonoBehaviour
+public class RedDoor : MonoBehaviour, Interactable
 {
     public int doorId;
     public bool isOpened;
@@ -36,22 +36,25 @@ public class RedDoor : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus<RedDoorStatusChangedEvent>.AddListener(OnAnyRedDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnAnyRedDoorStatusChanged);
     }
 
     private void OnDisable()
     {
-        EventBus<RedDoorStatusChangedEvent>.RemoveListener(OnAnyRedDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnAnyRedDoorStatusChanged);
     }
 
-    private void OnAnyRedDoorStatusChanged(object sender, RedDoorStatusChangedEvent redDoorStatusChangedEvent)
+    private void OnAnyRedDoorStatusChanged(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
     {
-        if (redDoorStatusChangedEvent.DoorId == doorId) 
+        if (doorStatusChangedEvent is RedDoorStatusChangedEvent redDoorStatusChangedEvent)
         {
-            if (!redDoorStatusChangedEvent.IsOpened)
+            if (redDoorStatusChangedEvent.DoorId == doorId) 
             {
-                OpenDoor();
-                _timer = 1.5f;
+                if (!redDoorStatusChangedEvent.IsOpened)
+                {
+                    OpenDoor();
+                    _timer = 1.5f;
+                }
             }
         }
     }

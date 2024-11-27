@@ -54,37 +54,37 @@ public class PlayerController : MonoBehaviour
         /* Collision with a red door */
         if (other.gameObject.TryGetComponent(out RedDoor redDoor)) 
         {
-            EventBus<RedDoorStatusChangedEvent>.Emit(this, new RedDoorStatusChangedEvent(redDoor.doorId,redDoor.isOpened));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new RedDoorStatusChangedEvent(redDoor.doorId,redDoor.isOpened));
         }
         
         /* Collision with a blue door */
         if (other.gameObject.TryGetComponent(out BlueDoor blueDoor))
         {
-            EventBus<BlueDoorStatusChangedEvent>.Emit(this, new BlueDoorStatusChangedEvent(blueDoor.doorId));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new BlueDoorStatusChangedEvent(blueDoor.doorId));
         }
         
         /* Collision with a green door */
         if (other.gameObject.TryGetComponent(out GreenDoor greenDoor))
         {
-            EventBus<GreenDoorStatusChangedEvent>.Emit(this, new GreenDoorStatusChangedEvent(greenDoor.doorId, greenDoor.doorAdditionalTime, !greenDoor.isOpen));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new GreenDoorStatusChangedEvent(greenDoor.doorId, greenDoor.doorAdditionalTime, !greenDoor.isOpen));
         }
         
         /* Collision with a purple door */
         if (other.gameObject.TryGetComponent(out PurpleDoor purpleDoor))
         {
-            EventBus<PurpleDoorStatusChangedEvent>.Emit(this, new PurpleDoorStatusChangedEvent(purpleDoor.doorId, purpleDoor.doorFreezeTime, !purpleDoor.isOpen));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new PurpleDoorStatusChangedEvent(purpleDoor.doorId, purpleDoor.doorFreezeTime, !purpleDoor.isOpen));
         }
         
         /* Collision with a orange door */
         if (other.gameObject.TryGetComponent(out OrangeDoor orangeDoor))
         {
-            EventBus<OrangeDoorStatusChangedEvent>.Emit(this, new OrangeDoorStatusChangedEvent(orangeDoor.doorId));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new OrangeDoorStatusChangedEvent(orangeDoor.doorId));
         }
         
         /* Collision with a white door */
         if (other.gameObject.TryGetComponent(out WhiteDoor whiteDoor))
         {
-            EventBus<WhiteDoorStatusChangedEvent>.Emit(this, new WhiteDoorStatusChangedEvent(whiteDoor.doorId));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new WhiteDoorStatusChangedEvent(whiteDoor.doorId));
         }
         
         /* Collision with finish door */

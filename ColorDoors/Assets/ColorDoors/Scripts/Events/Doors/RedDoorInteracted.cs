@@ -1,6 +1,6 @@
 namespace ColorDoors.Scripts.Events.Doors
 {
-    public struct RedDoorStatusChangedEvent
+    public struct RedDoorStatusChangedEvent : IDoorStatusChangedEvent
     {
         public RedDoorStatusChangedEvent(int doorId, bool isOpened)
         {

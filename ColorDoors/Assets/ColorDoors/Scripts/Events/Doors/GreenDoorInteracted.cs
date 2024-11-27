@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ColorDoors.Scripts.Events.Doors
 {
-    public struct GreenDoorStatusChangedEvent
+    public struct GreenDoorStatusChangedEvent : IDoorStatusChangedEvent
     {
         public GreenDoorStatusChangedEvent(int doorId, float additionalTime ,bool shouldBeOpened)
         {

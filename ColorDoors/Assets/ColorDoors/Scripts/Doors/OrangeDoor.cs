@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ColorDoors.Scripts.Events.Doors;
 using UnityEngine;
 
-public class OrangeDoor : MonoBehaviour
+public class OrangeDoor : MonoBehaviour, Interactable
 {
     public float timeToOpenMazeWalls;
     public int doorId;
@@ -38,20 +38,23 @@ public class OrangeDoor : MonoBehaviour
     
     private void OnEnable()
     {
-        EventBus<OrangeDoorStatusChangedEvent>.AddListener(OnAnyOrangeDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.AddListener(OnAnyOrangeDoorStatusChanged);
     }
 
     private void OnDisable()
     {
-        EventBus<OrangeDoorStatusChangedEvent>.RemoveListener(OnAnyOrangeDoorStatusChanged);
+        EventBus<IDoorStatusChangedEvent>.RemoveListener(OnAnyOrangeDoorStatusChanged);
     }
 
-    private void OnAnyOrangeDoorStatusChanged(object sender, OrangeDoorStatusChangedEvent orangeDoorStatusChangedEvent)
-    {        
-        if (orangeDoorStatusChangedEvent.DoorId == doorId) 
+    private void OnAnyOrangeDoorStatusChanged(object sender, IDoorStatusChangedEvent doorStatusChangedEvent)
+    {
+        if (doorStatusChangedEvent is OrangeDoorStatusChangedEvent orangeDoorStatusChangedEvent)
         {
-            OpenDoor();
-            _timer = timeToClose;
+            if (orangeDoorStatusChangedEvent.DoorId == doorId) 
+            {
+                OpenDoor();
+                _timer = timeToClose;
+            }
         }
     }
     
