@@ -7,7 +7,7 @@ using UnityEngine;
 public static class GameHelper
 {
     private static Dictionary<int, bool> _levelStatuses = new Dictionary<int, bool>();
-    private static int _lastActiveLevel = 1;
+    private static int _lastActiveLevel = 2;
 
     public static void AddLevelStatus(int levelIndex,bool isLocked)
     {
@@ -29,7 +29,7 @@ public static class GameHelper
     
     public static void SaveLevelStatuses()
     {
-        for (int i = 1; i < _levelStatuses.Count; i++)
+        for (int i = 2; i < _levelStatuses.Count; i++)
         {
             PlayerPrefs.SetInt("LevelStatus_" + i, _levelStatuses[i] ? 1 : 0);
         }
@@ -39,7 +39,7 @@ public static class GameHelper
     public static void LoadLevelStatuses(int totalLevels)
     {
         _levelStatuses.Clear();
-        for (int i = 1; i < totalLevels; i++)
+        for (int i = 2; i < totalLevels; i++)
         {
             int status = PlayerPrefs.GetInt("LevelStatus_" + i, 1); 
             _levelStatuses.Add(i,status == 1);
@@ -53,7 +53,7 @@ public static class GameHelper
 
     public static int GetLastActiveLevel()
     {
-        for (int i = 1; i < _levelStatuses.Count; i++)
+        for (int i = 2; i < _levelStatuses.Count; i++)
         {
             if (_levelStatuses[i] == false)
             {

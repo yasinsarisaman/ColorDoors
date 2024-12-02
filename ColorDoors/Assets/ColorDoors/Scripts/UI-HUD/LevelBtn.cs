@@ -14,7 +14,7 @@ public class LevelBtn : MonoBehaviour
 
     private void Start()
     {
-        if (GameHelper.CanAccessLevel(levelIndex) || levelIndex == 1)
+        if (GameHelper.CanAccessLevel(levelIndex) || levelIndex == 2)
         {
             lockImg.SetActive(false);
             levelBtn.interactable = true;

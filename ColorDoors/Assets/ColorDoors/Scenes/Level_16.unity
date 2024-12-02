@@ -3600,6 +3600,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 1681259197233067906, guid: a26834b5bc4cf3c46aeea54408c232ea, type: 3}
+      propertyPath: _doorOpenVector.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681259197233067906, guid: a26834b5bc4cf3c46aeea54408c232ea, type: 3}
+      propertyPath: _doorOpenVector.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681259197233067906, guid: a26834b5bc4cf3c46aeea54408c232ea, type: 3}
+      propertyPath: _doorOpenVector.z
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8336916310983635469, guid: a26834b5bc4cf3c46aeea54408c232ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.808

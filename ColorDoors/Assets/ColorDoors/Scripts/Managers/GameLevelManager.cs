@@ -37,7 +37,7 @@ namespace ColorDoors.Scripts.Managers
                     SceneManager.LoadScene(activeScene.buildIndex);
                 break;
                 case LevelChange.levelChange_GoBackToMainMenu:
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(1);
                 break;
             }
         }

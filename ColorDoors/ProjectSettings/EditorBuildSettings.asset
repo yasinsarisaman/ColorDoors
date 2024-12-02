@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ColorDoors/Scenes/PreLoadScene.unity
+    guid: 108c0459d5cbcde42b3c7afbd594c177
+  - enabled: 1
     path: Assets/ColorDoors/Scenes/MainMenu.unity
     guid: 2a31ed182608a2b4c9f6d0483bae38c6
   - enabled: 1

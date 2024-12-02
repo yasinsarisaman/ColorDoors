@@ -30,6 +30,5 @@ public class BlueDoor : MonoBehaviour, Interactable
                 EventBus<TeleportPlayer>.Emit(this,new TeleportPlayer(correlatedDoorTransform,doorOffset));
             }
         }
-
     }
 }
