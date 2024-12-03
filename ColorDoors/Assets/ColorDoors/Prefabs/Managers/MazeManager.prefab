@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2781d1558a888124f9fdd2c84f549843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mazeSharedMaterial: {fileID: 2100000, guid: bc8be5ea00ebb6d478804129d04c6eac, type: 2}
+  _mazeSharedMaterial: {fileID: 2100000, guid: 462a214e97a55e64cb331b44e9fe0d1d, type: 2}
   _mazeDynamicSharedMaterial: {fileID: 2100000, guid: baaf66e79285923429d2f8d389d0c0a8, type: 2}
