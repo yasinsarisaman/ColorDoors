@@ -10,6 +10,8 @@ public class BlueDoor : MonoBehaviour, Interactable
     public int doorId;
     [SerializeField] private Transform correlatedDoorTransform;
     [SerializeField] private float doorOffset;
+    [SerializeField] private bool onlyEntrance;
+    [SerializeField] private bool onlyExit;
     
     private void OnEnable()
     {
@@ -25,7 +27,7 @@ public class BlueDoor : MonoBehaviour, Interactable
     {
         if (doorStatusChangedEvent is BlueDoorStatusChangedEvent blueDoorStatusChangedEvent)
         {
-            if (blueDoorStatusChangedEvent.DoorId == doorId) 
+            if (blueDoorStatusChangedEvent.DoorId == doorId && !onlyExit) 
             {
                 EventBus<TeleportPlayer>.Emit(this,new TeleportPlayer(correlatedDoorTransform,doorOffset));
             }
