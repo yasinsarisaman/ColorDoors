@@ -61,7 +61,7 @@ public class OrangeDoor : MonoBehaviour, Interactable
     private void OpenDoor()
     {
         isOpen = true;
-        transform.position = new Vector3(_initialDoorPosition.x, _initialDoorPosition.y + 1.25f, _initialDoorPosition.z);
+        transform.position = new Vector3(_initialDoorPosition.x, _initialDoorPosition.y - 1.25f, _initialDoorPosition.z);
         
         EventBus<OpenDynamicMazeWalls>.Emit(this,new OpenDynamicMazeWalls(timeToOpenMazeWalls));
     }
