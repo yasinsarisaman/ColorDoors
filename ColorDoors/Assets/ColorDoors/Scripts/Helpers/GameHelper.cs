@@ -39,7 +39,7 @@ public static class GameHelper
     public static void LoadLevelStatuses(int totalLevels)
     {
         _levelStatuses.Clear();
-        for (int i = 2; i < totalLevels; i++)
+        for (int i = 2; i <= totalLevels + 1; i++)
         {
             int status = PlayerPrefs.GetInt("LevelStatus_" + i, 1); 
             _levelStatuses.Add(i,status == 1);
