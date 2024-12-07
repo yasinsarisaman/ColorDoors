@@ -31,11 +31,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         EventBus<TeleportPlayer>.AddListener(OnTeleportation);
+        EventBus<BoostPlayerSpeed>.AddListener(OnBoostPlayer);
     }
 
     private void OnDisable()
     {
         EventBus<TeleportPlayer>.RemoveListener(OnTeleportation);
+        EventBus<BoostPlayerSpeed>.RemoveListener(OnBoostPlayer);
     }
 
     private void Update()
@@ -87,6 +89,12 @@ public class PlayerController : MonoBehaviour
             EventBus<IDoorStatusChangedEvent>.Emit(this, new WhiteDoorStatusChangedEvent(whiteDoor.doorId));
         }
         
+        /* Collision with a speed door */
+        if (other.gameObject.TryGetComponent(out SpeedDoor speedDoor))
+        {
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new SpeedDoorStatusChangedEvent(speedDoor.doorId, speedDoor.boostFactor));
+        }
+        
         /* Collision with finish door */
         if (other.gameObject.TryGetComponent(out FinishDoor finishDoor))
         {
@@ -135,4 +143,8 @@ public class PlayerController : MonoBehaviour
         transform.SetPositionAndRotation(new Vector3(newPositionWithOffset.x, GROUND_ELEVATION, newPositionWithOffset.z), teleportPlayerEvent.TransformToTeleport.rotation);
     }
 
+    private void OnBoostPlayer(object sender, BoostPlayerSpeed boostPlayerEvent)
+    {
+        _playerSpeed *= boostPlayerEvent.BoostFactor;
+    }
 }

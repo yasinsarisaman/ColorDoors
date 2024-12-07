@@ -72,7 +72,7 @@ public class GreenDoor : MonoBehaviour, Interactable
             }
         }
     }
-
+    
     private void OpenDoor()
     {
         isOpen = true;
