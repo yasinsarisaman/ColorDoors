@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _playerSpeed;
     [SerializeField] private Rigidbody _playerRb;
-    [SerializeField] private DynamicJoystick _joystick;
+    [SerializeField] private VariableJoystick _joystick;
 
     private Animator characterAnimator;
 

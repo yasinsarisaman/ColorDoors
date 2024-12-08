@@ -414,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: _joystick
       value: 
-      objectReference: {fileID: 1378796884}
+      objectReference: {fileID: 1378796882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4194,6 +4194,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1673210110031537545, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3814696740176104405, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4327,17 +4331,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 16568451185523749, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
   m_PrefabInstance: {fileID: 1378796879}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1378796884 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6858091038094415813, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
-  m_PrefabInstance: {fileID: 1378796879}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1386347080
 PrefabInstance:
   m_ObjectHideFlags: 0
