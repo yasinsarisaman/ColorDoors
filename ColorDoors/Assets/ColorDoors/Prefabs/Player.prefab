@@ -5017,7 +5017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe79838a0bd0d641b9fea29886443ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpeed: 2
+  _playerSpeed: 2.75
   _playerRb: {fileID: 4414746915495310346}
   _joystick: {fileID: 0}
   _speedBoostFX: {fileID: 7469847847815869658}
