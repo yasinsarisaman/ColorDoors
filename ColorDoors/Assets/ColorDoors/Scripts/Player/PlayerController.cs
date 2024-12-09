@@ -16,16 +16,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _playerSpeed;
     [SerializeField] private Rigidbody _playerRb;
     [SerializeField] private VariableJoystick _joystick;
+    [SerializeField] private GameObject _speedBoostFX;
 
     private Animator characterAnimator;
 
     private Vector3 _playerInput;
     private const float GROUND_ELEVATION = 0.2f;
     private bool _isFirstInputReceived = false;
+    private float _boostTimer;
+    private float _initialPlayerSpeed;
+    private bool _boostFinished;
 
     private void Start()
     {
          characterAnimator = this.GetComponent<Animator>();
+         _initialPlayerSpeed = _playerSpeed;
     }
 
     private void OnEnable()
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckBoost();
         Move();
     }
 
@@ -92,7 +98,7 @@ public class PlayerController : MonoBehaviour
         /* Collision with a speed door */
         if (other.gameObject.TryGetComponent(out SpeedDoor speedDoor))
         {
-            EventBus<IDoorStatusChangedEvent>.Emit(this, new SpeedDoorStatusChangedEvent(speedDoor.doorId, speedDoor.boostFactor));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new SpeedDoorStatusChangedEvent(speedDoor.doorId, speedDoor.boostFactor, speedDoor.boostTime));
         }
         
         /* Collision with finish door */
@@ -123,6 +129,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CheckBoost()
+    {
+        if (_boostTimer <= 0.0f && !_boostFinished)
+        {
+            _playerSpeed = _initialPlayerSpeed;
+            _speedBoostFX.SetActive(false);
+            _boostFinished = true;
+            return;
+        }
+
+        _boostTimer -= Time.deltaTime;
+    }
+
     void Move()
     {
         
@@ -146,5 +165,11 @@ public class PlayerController : MonoBehaviour
     private void OnBoostPlayer(object sender, BoostPlayerSpeed boostPlayerEvent)
     {
         _playerSpeed *= boostPlayerEvent.BoostFactor;
+        _boostTimer = boostPlayerEvent.BoostTime;
+        _boostFinished = false;
+        if (_playerInput != Vector3.zero)
+        {
+            _speedBoostFX.SetActive(true);
+        }
     }
 }

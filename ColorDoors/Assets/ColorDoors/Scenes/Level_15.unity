@@ -2756,6 +2756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5624431336452436911, guid: 2bc3d251349cd8946884efe9dec46b6a, type: 3}
+      propertyPath: boostTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8336916310983635469, guid: 2bc3d251349cd8946884efe9dec46b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.068

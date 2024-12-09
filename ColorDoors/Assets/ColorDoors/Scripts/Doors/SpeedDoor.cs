@@ -9,6 +9,7 @@ public class SpeedDoor : MonoBehaviour, Interactable
 {
     public int doorId;
     public float boostFactor;
+    public float boostTime;
 
     [SerializeField] Vector3 _doorOpenVector;
     
@@ -56,7 +57,7 @@ public class SpeedDoor : MonoBehaviour, Interactable
                 //Activate boost button on UI
                 OpenDoor();
                 _timer = 3.0f;
-                //EventBus<BoostPlayerSpeed>.Emit(this,new BoostPlayerSpeed(speedDoorStatusChangedEvent.BoostFactor));
+                EventBus<BoostPlayerSpeed>.Emit(this,new BoostPlayerSpeed(speedDoorStatusChangedEvent.BoostFactor, speedDoorStatusChangedEvent.BoostTime));
             }
         }
     }
