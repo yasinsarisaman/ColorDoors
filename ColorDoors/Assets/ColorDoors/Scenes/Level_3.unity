@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 1378796882}
+    - target: {fileID: 4575256306966977356, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 5424464202436140881, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25

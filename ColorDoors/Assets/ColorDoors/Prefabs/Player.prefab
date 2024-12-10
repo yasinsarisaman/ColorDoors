@@ -5021,6 +5021,7 @@ MonoBehaviour:
   _playerRb: {fileID: 4414746915495310346}
   _joystick: {fileID: 0}
   _speedBoostFX: {fileID: 7469847847815869658}
+  _playerMinimumTurnDegree: 20
 --- !u!4 &4575256306966977356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 649af6eccaa6ae442866f3f0e11f5df3, type: 3}

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRb;
     [SerializeField] private VariableJoystick _joystick;
     [SerializeField] private GameObject _speedBoostFX;
+    [SerializeField] private int _playerMinimumTurnDegree;
 
     private Animator characterAnimator;
 
@@ -124,7 +125,17 @@ public class PlayerController : MonoBehaviour
         {
             var relative = (transform.position + _playerInput.ToIsometric()) - transform.position;
             var rotation = Quaternion.LookRotation(relative, Vector3.up);
+            
+            var tempX = (rotation.x * 100);
+            var tempY = (rotation.y * 100);
+            var tempZ = (rotation.z * 100);
+            var tempW = (rotation.w * 100);
 
+            rotation.x = (tempX - tempX % _playerMinimumTurnDegree) / 100;
+            rotation.y = (tempY - tempY % _playerMinimumTurnDegree) / 100;
+            rotation.z = (tempZ - tempZ % _playerMinimumTurnDegree) / 100;
+            rotation.w = (tempW - tempW % _playerMinimumTurnDegree) / 100;
+            
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 360);
         }
     }
@@ -148,7 +159,7 @@ public class PlayerController : MonoBehaviour
         characterAnimator.SetFloat("CharacterSpeed", math.abs(_playerInput.magnitude)/2);
         _playerRb.MovePosition(transform.position + transform.forward * (_playerInput.magnitude * _playerSpeed * Time.deltaTime));
     }
-    
+
     /* Callbacks */
     private void OnTeleportation(object sender, TeleportPlayer teleportPlayerEvent)
     {
