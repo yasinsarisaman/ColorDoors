@@ -4521,7 +4521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingTime: {fileID: 1761836745}
-  levelTime: 10
+  levelTime: 8
 --- !u!1001 &1694295065
 PrefabInstance:
   m_ObjectHideFlags: 0
