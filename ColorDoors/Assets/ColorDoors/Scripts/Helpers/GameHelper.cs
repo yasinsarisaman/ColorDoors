@@ -4,10 +4,25 @@ using ColorDoors.Scripts.Events;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum JoystickPosition
+{
+    JoystickPosition_LEFT,
+    JoystickPosition_RIGHT
+}
+
+public enum GameDifficulty
+{
+    GameDifficulty_EASY,
+    GameDifficulty_MEDIUM,
+    GameDifficulty_HARD
+}
+
 public static class GameHelper
 {
     private static Dictionary<int, bool> _levelStatuses = new Dictionary<int, bool>();
     private static int _lastActiveLevel = 2;
+    private static JoystickPosition _joystickPosition;
+    private static GameDifficulty _gameDifficulty;
 
     public static void AddLevelStatus(int levelIndex,bool isLocked)
     {
@@ -62,5 +77,66 @@ public static class GameHelper
         }
 
         return _lastActiveLevel;
+    }
+
+    public static void SaveJoystickPosition(JoystickPosition joystickPosition)
+    {
+        string jPos = joystickPosition == JoystickPosition.JoystickPosition_LEFT ? "LEFT" : "RIGHT";
+        PlayerPrefs.SetString("JoystickPosition", jPos);
+        PlayerPrefs.Save();
+    }
+
+    public static void LoadJoystickPosition()
+    {
+        string jPos = PlayerPrefs.GetString("JoystickPosition", "LEFT");
+        _joystickPosition = jPos == "LEFT"
+            ? JoystickPosition.JoystickPosition_LEFT
+            : JoystickPosition.JoystickPosition_RIGHT;
+    }
+
+    public static JoystickPosition GetJoystickPosition()
+    {
+        return _joystickPosition;
+    }
+
+    public static void SaveGameDifficulty(GameDifficulty gameDifficulty)
+    {
+        short difficulty = 2;
+        switch (gameDifficulty)
+        {
+            case GameDifficulty.GameDifficulty_EASY:
+                difficulty = 1;
+                break;
+            case GameDifficulty.GameDifficulty_MEDIUM:
+                difficulty = 2;
+                break;
+            case GameDifficulty.GameDifficulty_HARD:
+                difficulty = 3;
+                break;
+        }
+        PlayerPrefs.SetInt("GameDifficulty", difficulty);
+        PlayerPrefs.Save();
+    }
+    
+    public static void LoadGameDifficulty()
+    {
+        int difficulty = PlayerPrefs.GetInt("GameDifficulty", 2);
+        switch (difficulty)
+        {
+            case 1:
+                _gameDifficulty = GameDifficulty.GameDifficulty_EASY;
+                break;
+            case 2:
+                _gameDifficulty = GameDifficulty.GameDifficulty_MEDIUM;
+                break;
+            case 3:
+                _gameDifficulty = GameDifficulty.GameDifficulty_HARD;
+                break;
+        }
+    }
+
+    public static GameDifficulty GetGameDifficulty()
+    {
+        return _gameDifficulty;
     }
 }

@@ -1246,6 +1246,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c37b1ccfbc7ed274eb99f9d40e72c4e6, type: 3}
   m_PrefabInstance: {fileID: 1530838017}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &233885750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5624201647385073824, guid: 579258a6db58beb4587b1659e6c44b1f, type: 3}
+  m_PrefabInstance: {fileID: 276966592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &237399044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9556,6 +9567,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 276966594}
+    - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
+      propertyPath: _joystickLeft
+      value: 
+      objectReference: {fileID: 233885750}
+    - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
+      propertyPath: _joystickRight
       value: 
       objectReference: {fileID: 276966594}
     m_RemovedComponents: []

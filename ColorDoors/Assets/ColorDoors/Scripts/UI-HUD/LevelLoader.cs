@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour
         LoadLevels();
     }
 
+
     private static void LoadLevels()
     {
         GameHelper.LoadLevelStatuses(SceneManager.sceneCountInBuildSettings);

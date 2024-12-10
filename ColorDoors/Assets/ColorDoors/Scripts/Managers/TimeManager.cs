@@ -23,6 +23,7 @@ public class TimeManager : MonoBehaviour
     private float _freezeTime;
     private static List<int> _greenDoorIdList;
     private static List<int> _purpleDoorIdList;
+    private GameDifficulty _gameDifficulty;
 
     private void OnEnable()
     {
@@ -40,9 +41,25 @@ public class TimeManager : MonoBehaviour
     
     private void Start()
     {
+        GameHelper.LoadGameDifficulty();
+        _gameDifficulty = GameHelper.GetGameDifficulty();
+        float difficultyFactor = 1.0f;
+        switch (_gameDifficulty)
+        {
+            case GameDifficulty.GameDifficulty_EASY:
+                difficultyFactor = 0.5f;
+                break;
+            case GameDifficulty.GameDifficulty_MEDIUM:
+                difficultyFactor = 1.0f;
+                break;
+            case GameDifficulty.GameDifficulty_HARD:
+                difficultyFactor = 1.2f;
+                break;
+        }
+        
         _greenDoorIdList = new List<int>();
         _purpleDoorIdList = new List<int>();
-        _remainingTime = levelTime;
+        _remainingTime = levelTime / difficultyFactor;
         _seconds = (int)_remainingTime % 60;
         _minutes = (int)_remainingTime / 60;
 

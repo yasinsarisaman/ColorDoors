@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _playerSpeed;
     [SerializeField] private Rigidbody _playerRb;
-    [SerializeField] private VariableJoystick _joystick;
+    [SerializeField] private VariableJoystick _joystickLeft,_joystickRight;
     [SerializeField] private GameObject _speedBoostFX;
     [SerializeField] private int _playerMinimumTurnDegree;
 
@@ -111,7 +111,10 @@ public class PlayerController : MonoBehaviour
     
     void GatherInputsFromJoyStick()
     {
-        _playerInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
+        Vector3 leftInput = new Vector3(_joystickLeft.Horizontal, 0, _joystickLeft.Vertical);
+        Vector3 rightInput = new Vector3(_joystickRight.Horizontal, 0, _joystickRight.Vertical);
+        
+        _playerInput = leftInput + rightInput;
         if (!_isFirstInputReceived && _playerInput != Vector3.zero)
         {
             _isFirstInputReceived = true;
