@@ -170,10 +170,11 @@ namespace Game
                     #if UNITY_ANDROID
                     adUnitID = "ca-app-pub-1126931214625629/9104631765";
                     return;
-                    //#elif UNITY_IPHONE
-                    //unitID = "ca-app-pub-3940256099942544/4411468910";
+                    #elif UNITY_IPHONE
+                    adUnitID = "ca-app-pub-1126931214625629/3058700808";
+                    return;
                     #else
-                    //unitID = "unexpected_platform";
+                    adUnitID = "unexpected_platform";
                     #endif
             }
 

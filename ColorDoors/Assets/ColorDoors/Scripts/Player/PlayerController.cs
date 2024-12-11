@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         /* Collision with a blue door */
         if (other.gameObject.TryGetComponent(out BlueDoor blueDoor))
         {
-            EventBus<IDoorStatusChangedEvent>.Emit(this, new BlueDoorStatusChangedEvent(blueDoor.doorId));
+            EventBus<IDoorStatusChangedEvent>.Emit(this, new BlueDoorStatusChangedEvent(blueDoor.doorId, blueDoor.onlyExit, blueDoor.onlyEntrance));
         }
         
         /* Collision with a green door */

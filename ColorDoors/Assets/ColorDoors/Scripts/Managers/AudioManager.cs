@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _doorOpenClip;
+    [SerializeField] private AudioClip _blueDoorOpenClip;
+    [SerializeField] private AudioClip _blueDoorOnlyExitOpenClip;
     [SerializeField] private AudioClip _finishDoorOpenClip;
     [SerializeField] private AudioClip _UIClickClip;
 
@@ -28,7 +30,23 @@ public class AudioManager : MonoBehaviour
 
     private void OnAnyDoorStatusChanged(object sender, IDoorStatusChangedEvent anyDoor)
     {
-        _audioSource.PlayOneShot(_doorOpenClip);
+        if (anyDoor is BlueDoorStatusChangedEvent blueDoorStatusChangedEvent)
+        {
+            if (blueDoorStatusChangedEvent.OnlyExit)
+            {
+                _audioSource.PlayOneShot(_blueDoorOnlyExitOpenClip);
+            }
+            else
+            {
+                _audioSource.PlayOneShot(_blueDoorOpenClip);
+            }
+        }
+        else
+        {
+            /* Play generic door open sound effect */
+            _audioSource.PlayOneShot(_doorOpenClip);
+        }
+
     }
 
     private void OnFinishDoorStatusChanged(object sender, FinishDoorStatusChangedEvent finishDoorStatusChangedEvent)

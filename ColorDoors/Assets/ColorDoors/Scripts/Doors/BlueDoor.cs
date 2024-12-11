@@ -8,10 +8,10 @@ using UnityEngine;
 public class BlueDoor : MonoBehaviour, Interactable
 {
     public int doorId;
+    public bool onlyEntrance;
+    public bool onlyExit;
     [SerializeField] private Transform correlatedDoorTransform;
     [SerializeField] private float doorOffset;
-    [SerializeField] private bool onlyEntrance;
-    [SerializeField] private bool onlyExit;
     
     private void OnEnable()
     {
@@ -27,7 +27,7 @@ public class BlueDoor : MonoBehaviour, Interactable
     {
         if (doorStatusChangedEvent is BlueDoorStatusChangedEvent blueDoorStatusChangedEvent)
         {
-            if (blueDoorStatusChangedEvent.DoorId == doorId && !onlyExit) 
+            if (blueDoorStatusChangedEvent.DoorId == doorId && blueDoorStatusChangedEvent.OnlyExit == false) 
             {
                 EventBus<TeleportPlayer>.Emit(this,new TeleportPlayer(correlatedDoorTransform,doorOffset));
             }

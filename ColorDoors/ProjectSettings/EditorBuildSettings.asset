@@ -63,6 +63,9 @@ EditorBuildSettings:
     path: Assets/ColorDoors/Scenes/Level_17.unity
     guid: aa017d3d3fe62434186f2cf85eadba52
   - enabled: 1
+    path: Assets/ColorDoors/Scenes/Level_18.unity
+    guid: 98066ddba643cb449ac9228b27ac3c69
+  - enabled: 1
     path: Assets/ColorDoors/Scenes/Level_20.unity
     guid: 5b70560d8012c864e841e7b917844432
   m_configObjects: {}

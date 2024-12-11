@@ -143,5 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 2393007509036186620}
   _doorOpenClip: {fileID: 8300000, guid: ce554b9965063e74d97de91d3c9c3ef9, type: 3}
+  _blueDoorOpenClip: {fileID: 8300000, guid: cbd7ec4bf68e0234cb7e92a3cc86a98d, type: 3}
+  _blueDoorOnlyExitOpenClip: {fileID: 8300000, guid: ce554b9965063e74d97de91d3c9c3ef9, type: 3}
   _finishDoorOpenClip: {fileID: 8300000, guid: 0fc38688302479b4498d9a33cae288f8, type: 3}
   _UIClickClip: {fileID: 8300000, guid: 7795d791706c38247becc9a613fe7942, type: 3}
