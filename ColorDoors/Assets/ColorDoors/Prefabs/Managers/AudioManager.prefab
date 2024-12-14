@@ -147,3 +147,4 @@ MonoBehaviour:
   _blueDoorOnlyExitOpenClip: {fileID: 8300000, guid: ce554b9965063e74d97de91d3c9c3ef9, type: 3}
   _finishDoorOpenClip: {fileID: 8300000, guid: 0fc38688302479b4498d9a33cae288f8, type: 3}
   _UIClickClip: {fileID: 8300000, guid: 7795d791706c38247becc9a613fe7942, type: 3}
+  _timeCriticalClip: {fileID: 8300000, guid: f6e0f3ba53a93bf4e81cc3a82f86ba4c, type: 3}

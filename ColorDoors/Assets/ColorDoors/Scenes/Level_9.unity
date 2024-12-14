@@ -4437,7 +4437,7 @@ PrefabInstance:
       objectReference: {fileID: 1019414328}
     - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
       propertyPath: doorAdditionalTime
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3402110432800980561, guid: b1b5e0004e89aeb4faa26eb3fb50c5e6, type: 3}
       propertyPath: _animatorTimerClockImg
@@ -7767,7 +7767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingTime: {fileID: 1356887053}
-  levelTime: 15
+  levelTime: 8
 --- !u!1 &1694368508
 GameObject:
   m_ObjectHideFlags: 0

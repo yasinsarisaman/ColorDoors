@@ -7834,6 +7834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6993968838080558273, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7245849107666599675, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7914,8 +7918,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8435476915391379231, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 183
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8947639709055974449, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}

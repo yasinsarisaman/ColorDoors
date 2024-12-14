@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using ColorDoors.Scripts.Events;
 using ColorDoors.Scripts.Events.Doors;
+using ColorDoors.Scripts.Events.Game;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +22,7 @@ public class TimeManager : MonoBehaviour
     private bool _isThereTimeFreeze = false;
     private bool _isThereTimeFreezeForSeconds = false;
     private bool _isFirstInputReceived = false;
+    private bool _timeCriticalEventEmitted = false;
     private float _freezeTime;
     private static List<int> _greenDoorIdList;
     private static List<int> _purpleDoorIdList;
@@ -62,7 +65,6 @@ public class TimeManager : MonoBehaviour
         _remainingTime = levelTime / difficultyFactor;
         _seconds = (int)_remainingTime % 60;
         _minutes = (int)_remainingTime / 60;
-
         UpdateUITimer();
     }
 
@@ -88,6 +90,11 @@ public class TimeManager : MonoBehaviour
         ArrangeTimerColor();
         if (_seconds <= 5 && _minutes < 1)
         {
+            if (!_timeCriticalEventEmitted)
+            {
+                EventBus<TimeCriticalEvent>.Emit(this, new TimeCriticalEvent(true));
+                _timeCriticalEventEmitted = true;
+            }
             remainingTime.color = Color.red;
             if (_timerAnimationCounter < 100)
             { 
@@ -117,6 +124,9 @@ public class TimeManager : MonoBehaviour
     {
         if (doorStatusChangedEvent is GreenDoorStatusChangedEvent greenDoorStatusChangedEvent)
         {
+            EventBus<TimeCriticalEvent>.Emit(this, new TimeCriticalEvent(false));
+            _timeCriticalEventEmitted = false;
+
             if (_greenDoorIdList.Contains(greenDoorStatusChangedEvent.DoorId)) return;
             _remainingTime += greenDoorStatusChangedEvent.AdditionalTime;
             _additionalTimerColorCounter = 120;
@@ -140,6 +150,7 @@ public class TimeManager : MonoBehaviour
     private void OnLevelCompleted(object sender, LevelCompletedEvent levelCompletedEvent)
     {
         FreezeTime();
+        EmitRemainingTime();
     }
 
     private bool CheckTimeFreeze()
@@ -201,4 +212,9 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void EmitRemainingTime()
+    {
+        EventBus<LevelCompletedWithTime>.Emit(this, new LevelCompletedWithTime(_remainingTime));
+        Debug.Log("Emit remaining time for level");
+    }
 }

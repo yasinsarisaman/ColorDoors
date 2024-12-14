@@ -31,7 +31,7 @@ public class VariableJoystickExtras : MonoBehaviour
 
     private void ChangeJoystickPositionTo(JoystickPosition jp)
     {
-        Debug.Log("Set position to " + jp);
+        //Debug.Log("Set position to " + jp);
         switch (jp)
         {
             case JoystickPosition.JoystickPosition_LEFT:
