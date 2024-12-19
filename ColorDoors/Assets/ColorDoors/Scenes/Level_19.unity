@@ -8831,7 +8831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 203825683015946046, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2880336332305096159, guid: 5f5799b93bf73ef4cbf465620aaaecfd, type: 3}
       propertyPath: m_Name
