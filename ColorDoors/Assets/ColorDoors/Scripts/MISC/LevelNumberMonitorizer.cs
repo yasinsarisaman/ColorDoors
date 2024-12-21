@@ -10,6 +10,6 @@ public class LevelNumberMonitorizer : MonoBehaviour
     [SerializeField] private TextMeshPro _levelNumber;
     void Start()
     {
-        _levelNumber.text = "level:" + SceneManager.GetActiveScene().buildIndex.ToString();
+        _levelNumber.text = "level:" + (SceneManager.GetActiveScene().buildIndex -1).ToString();
     }
 }

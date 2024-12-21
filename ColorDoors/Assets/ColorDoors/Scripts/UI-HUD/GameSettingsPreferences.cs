@@ -8,6 +8,8 @@ public class GameSettingsPreferences : MonoBehaviour
 {
     [SerializeField] private Button _joystickLeft;
     [SerializeField] private Button _joystickRight;
+    [SerializeField] private Button _joystickBoth;
+    
     [SerializeField] private Button _difficultyEasyBtn;
     [SerializeField] private Button _difficultyMediumBtn;
     [SerializeField] private Button _difficultyHardBtn;
@@ -45,9 +47,22 @@ public class GameSettingsPreferences : MonoBehaviour
         SwitchDifficultyBtnInteractable(gameDifficulty);
     }
 
-    public void SaveJoystickPosition(bool isLeft)
+    public void SaveJoystickPosition(int jbtnPos)
     {
-        JoystickPosition jp = isLeft ? JoystickPosition.JoystickPosition_LEFT : JoystickPosition.JoystickPosition_RIGHT;
+        JoystickPosition jp = JoystickPosition.JoystickPosition_BOTH;
+        switch (jbtnPos)
+        {
+            case 0:
+                jp = JoystickPosition.JoystickPosition_LEFT;
+                break;
+            case 1:
+                jp = JoystickPosition.JoystickPosition_BOTH;
+                break;    
+            case 2:
+                jp = JoystickPosition.JoystickPosition_RIGHT;
+                break;
+                
+        }
         GameHelper.SaveJoystickPosition(jp);
         SwitchJoystickBtnInteractable(jp);
         EventBus<JoystickPositionChangedEvent>.Emit(this, new JoystickPositionChangedEvent(jp));
@@ -82,10 +97,17 @@ public class GameSettingsPreferences : MonoBehaviour
             case JoystickPosition.JoystickPosition_LEFT:
                 _joystickLeft.interactable = false;
                 _joystickRight.interactable = true;
+                _joystickBoth.interactable = true;
                 break;
             case JoystickPosition.JoystickPosition_RIGHT:
                 _joystickRight.interactable = false;
                 _joystickLeft.interactable = true;
+                _joystickBoth.interactable = true;
+                break;
+            case JoystickPosition.JoystickPosition_BOTH:
+                _joystickBoth.interactable = false;
+                _joystickLeft.interactable = true;
+                _joystickRight.interactable = true;
                 break;
         }
     }

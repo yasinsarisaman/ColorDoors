@@ -7,7 +7,8 @@ using UnityEngine;
 public enum JoystickPosition
 {
     JoystickPosition_LEFT,
-    JoystickPosition_RIGHT
+    JoystickPosition_RIGHT,
+    JoystickPosition_BOTH
 }
 
 public enum GameDifficulty
@@ -81,17 +82,40 @@ public static class GameHelper
 
     public static void SaveJoystickPosition(JoystickPosition joystickPosition)
     {
-        string jPos = joystickPosition == JoystickPosition.JoystickPosition_LEFT ? "LEFT" : "RIGHT";
+        string jPos = "BOTH";
+        switch (joystickPosition)
+        {
+            case JoystickPosition.JoystickPosition_BOTH:
+                jPos = "BOTH";
+                break;
+            case JoystickPosition.JoystickPosition_LEFT:
+                jPos = "LEFT";
+                break;
+            case JoystickPosition.JoystickPosition_RIGHT:
+                jPos = "RIGHT";
+                break;
+        }
         PlayerPrefs.SetString("JoystickPosition", jPos);
         PlayerPrefs.Save();
     }
 
     public static void LoadJoystickPosition()
     {
-        string jPos = PlayerPrefs.GetString("JoystickPosition", "LEFT");
-        _joystickPosition = jPos == "LEFT"
-            ? JoystickPosition.JoystickPosition_LEFT
-            : JoystickPosition.JoystickPosition_RIGHT;
+        string jPos = PlayerPrefs.GetString("JoystickPosition", "BOTH");
+        if (jPos == "BOTH")
+        {
+            _joystickPosition = JoystickPosition.JoystickPosition_BOTH;
+        }
+
+        if (jPos == "LEFT")
+        {
+            _joystickPosition = JoystickPosition.JoystickPosition_LEFT;
+        }
+
+        if (jPos == "RIGHT")
+        {
+            _joystickPosition = JoystickPosition.JoystickPosition_RIGHT;
+        }
     }
 
     public static JoystickPosition GetJoystickPosition()

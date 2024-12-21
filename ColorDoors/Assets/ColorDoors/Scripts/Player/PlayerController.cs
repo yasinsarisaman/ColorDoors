@@ -113,8 +113,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 leftInput = new Vector3(_joystickLeft.Horizontal, 0, _joystickLeft.Vertical);
         Vector3 rightInput = new Vector3(_joystickRight.Horizontal, 0, _joystickRight.Vertical);
-        
-        _playerInput = leftInput + rightInput;
+
+        if (leftInput != Vector3.zero && rightInput != Vector3.zero)
+        {
+            _playerInput = Vector3.zero;
+        }
+        else
+        {
+            _playerInput = leftInput + rightInput;
+        }
         if (!_isFirstInputReceived && _playerInput != Vector3.zero)
         {
             _isFirstInputReceived = true;

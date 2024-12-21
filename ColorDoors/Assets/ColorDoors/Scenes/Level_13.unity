@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +461,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 883575504706735959, guid: 4ee9837d9808ab34bb7aac20469397ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4ee9837d9808ab34bb7aac20469397ca, type: 3}
 --- !u!4 &125509458 stripped
 Transform:
@@ -8860,7 +8862,7 @@ PrefabInstance:
       objectReference: {fileID: 1173323727}
     - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: _playerSpeed
-      value: 2
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
       propertyPath: _joystickLeft
@@ -8870,6 +8872,10 @@ PrefabInstance:
       propertyPath: _joystickRight
       value: 
       objectReference: {fileID: 1173323727}
+    - target: {fileID: 8478110599496961840, guid: 5cdf38c0b20d07b48a60e62e30ceb2d7, type: 3}
+      propertyPath: _playerMinimumTurnDegree
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

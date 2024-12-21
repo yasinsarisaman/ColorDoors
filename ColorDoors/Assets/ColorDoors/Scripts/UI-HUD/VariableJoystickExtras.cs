@@ -42,6 +42,10 @@ public class VariableJoystickExtras : MonoBehaviour
                 _rightJoystick.SetActive(true);
                 _leftJoystick.SetActive(false);
                 break;
+            case JoystickPosition.JoystickPosition_BOTH:
+                _rightJoystick.SetActive(true);
+                _leftJoystick.SetActive(true);
+                break;
         }
     }
 }
