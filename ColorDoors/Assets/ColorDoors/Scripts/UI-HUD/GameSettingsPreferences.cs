@@ -53,6 +53,7 @@ public class GameSettingsPreferences : MonoBehaviour
         switch (jbtnPos)
         {
             case 0:
+                Debug.Log("Pressed 0");
                 jp = JoystickPosition.JoystickPosition_LEFT;
                 break;
             case 1:

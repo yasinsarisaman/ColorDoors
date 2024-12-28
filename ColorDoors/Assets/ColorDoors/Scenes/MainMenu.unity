@@ -13511,7 +13511,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 311822135}
         m_TargetAssemblyTypeName: GameSettingsPreferences, Assembly-CSharp
-        m_MethodName: SaveGameDifficulty
+        m_MethodName: SaveJoystickPosition
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
