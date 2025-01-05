@@ -8,6 +8,7 @@ public class VariableJoystickExtras : MonoBehaviour
     [SerializeField] private GameObject _leftJoystick;
     [SerializeField] private GameObject _rightJoystick;
 
+
     private void Start()
     {
         GameHelper.LoadJoystickPosition();
